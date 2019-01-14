@@ -14,10 +14,10 @@ Basic API Provides JSON access to imported content via enpoints.
 	composer worker:default
 * Run migrations
 * ```
-	pphp console database migrate
+	php console database migrate
 * Initiate import process
 * ```
-	pphp console import 
+	php console import 
 
 Imported data is accessible by endpoints:
 ```
