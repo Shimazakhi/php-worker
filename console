@@ -1,0 +1,25 @@
+#!/usr/bin/env php
+<?php
+
+require 'boot.php';
+
+use Symfony\Component\Console\CommandLoader\FactoryCommandLoader;
+
+/*
+ * Register symphony console application
+ */
+$commandLoader = new FactoryCommandLoader([
+    'database' => function () {
+        return new \Commands\MigrationCommand();
+    },
+    'import' => function () {
+        return new \Commands\ImportCommand();
+    },
+]);
+
+$application = new Symfony\Component\Console\Application();
+$application->setCommandLoader($commandLoader);
+
+$application->run();
+
+
